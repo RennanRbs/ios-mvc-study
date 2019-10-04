@@ -24,6 +24,7 @@
 		AB7050E8232974D0002F1CBA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7050E7232974D0002F1CBA /* DetailView.swift */; };
 		AB7050EA23297698002F1CBA /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7050E923297698002F1CBA /* BaseView.swift */; };
 		ABD08175231F01DD004185E0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD08174231F01DD004185E0 /* DetailViewController.swift */; };
+		E83F594C23476CDE00774D17 /* CollectionCommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F594B23476CDE00774D17 /* CollectionCommonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		AB7050E7232974D0002F1CBA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		AB7050E923297698002F1CBA /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		ABD08174231F01DD004185E0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E83F594B23476CDE00774D17 /* CollectionCommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCommonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		AB1E210D22DFFA5A00B30691 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E83F594A23476C9400774D17 /* Common Collection */,
 				AB3E3F0723148CA7002E100F /* Controller extensions */,
 				AB1E210E22DFFA9B00B30691 /* CharactersViewController.swift */,
 				ABD08174231F01DD004185E0 /* DetailViewController.swift */,
@@ -183,6 +186,14 @@
 				AB5367EC231DE1B600180C08 /* ReuserIdentifierEnum.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		E83F594A23476C9400774D17 /* Common Collection */ = {
+			isa = PBXGroup;
+			children = (
+				E83F594B23476CDE00774D17 /* CollectionCommonViewController.swift */,
+			);
+			path = "Common Collection";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +304,7 @@
 				AB1D595422DD55B700A66B70 /* AppDelegate.swift in Sources */,
 				AB1E210F22DFFA9B00B30691 /* CharactersViewController.swift in Sources */,
 				AB7050E8232974D0002F1CBA /* DetailView.swift in Sources */,
+				E83F594C23476CDE00774D17 /* CollectionCommonViewController.swift in Sources */,
 				AB1E211322E0E6DA00B30691 /* ExtensionCharCollectionViewCell+Constraints.swift in Sources */,
 				AB340A4922E7A34E0014DD40 /* URLToImageExtension.swift in Sources */,
 				AB3E3F0923148CE1002E100F /* CharactersViewControllerConstraintsExtensions.swift in Sources */,
