@@ -8,27 +8,17 @@
 
 import UIKit
 
-class CharactersViewController: UIViewController {
+class CharactersViewController: CollectionCommonViewController {
     
     var characters = [Character]()
     
-    let charCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(CharactersCollectionViewCell.self, forCellWithReuseIdentifier: ReuseIdentifier.charCollectionViewCell.rawValue)
-        collectionView.backgroundColor = .clear
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.contentInset = UIEdgeInsets(top: 23, left: 16, bottom: 10, right: 16)
-        
-        return collectionView
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fetchChars()
         self.view.backgroundColor = .red
-        self.charCollectionView.delegate = self
-        self.charCollectionView.dataSource = self
+        charCollectionView.delegate = self
+        charCollectionView.dataSource = self
         self.setupCollectionViewConstraints()
     }
 
