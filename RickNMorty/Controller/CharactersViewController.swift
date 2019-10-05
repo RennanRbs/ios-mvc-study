@@ -26,10 +26,16 @@ class CharactersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fetchChars()
-        self.view.backgroundColor = .red
+        self.view.backgroundColor = .white
         self.charCollectionView.delegate = self
         self.charCollectionView.dataSource = self
         self.setupCollectionViewConstraints()
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar(){
+        self.title = "RickNMorty"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     func fetchChars() {
@@ -37,6 +43,7 @@ class CharactersViewController: UIViewController {
         NetworkManager.sharedInstance.sendGetRequest(getRequest: getRequest, type: Result.self) { (result, error) in
             if let requestResponse = result {
                 self.characters = requestResponse.results
+                print(self.characters)
                 DispatchQueue.main.async {
                     self.charCollectionView.reloadData()
                 }
