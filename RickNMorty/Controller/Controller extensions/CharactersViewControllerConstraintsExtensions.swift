@@ -14,10 +14,10 @@ extension CharactersViewController {
         self.view.addSubview(self.charCollectionView)
     
         NSLayoutConstraint.activate([
-            self.charCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            self.charCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            self.charCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.charCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            charCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            charCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            charCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            charCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
     }
 }
