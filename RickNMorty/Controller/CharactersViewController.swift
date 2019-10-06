@@ -16,7 +16,7 @@ class CharactersViewController: CollectionCommonViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fetchChars()
-        self.view.backgroundColor = .red
+        self.view.backgroundColor = .white
         charCollectionView.delegate = self
         charCollectionView.dataSource = self
         self.setupCollectionViewConstraints()
@@ -41,7 +41,7 @@ class CharactersViewController: CollectionCommonViewController {
 extension CharactersViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
+        let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) 
         
         return CGSize(width: itemSize, height: itemSize)
     }

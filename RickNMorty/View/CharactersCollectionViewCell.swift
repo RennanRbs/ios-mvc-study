@@ -38,12 +38,16 @@ class CharactersCollectionViewCell: UICollectionViewCell {
         self.addSubview(self.charImageView)
         self.charImageView.addSubview(self.blurView)
         self.blurView.addSubview(self.nameLabel)
-        
+        setupCellAdjustment()
         self.setupImageViewConstraints()
         self.setupBlurViewConstraints()
         self.setupNameLabelConstraints()
     }
     
+    func setupCellAdjustment(){
+        self.layer.cornerRadius = 10
+        self.clipsToBounds = true
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupComponentsInCell()
