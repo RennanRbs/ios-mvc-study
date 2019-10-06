@@ -11,6 +11,7 @@ import UIKit
 class CharactersViewController: UIViewController {
     
     var characters = [Character]()
+    public weak var delegateCharacter: SendCharacter?
     
     let charCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -43,7 +44,7 @@ class CharactersViewController: UIViewController {
         NetworkManager.sharedInstance.sendGetRequest(getRequest: getRequest, type: Result.self) { (result, error) in
             if let requestResponse = result {
                 self.characters = requestResponse.results
-                print(self.characters)
+//                print(self.characters)
                 DispatchQueue.main.async {
                     self.charCollectionView.reloadData()
                 }
@@ -77,5 +78,15 @@ extension CharactersViewController: UICollectionViewDataSource {
         cell.charImageView.imageFrom(url: self.characters[indexPath.row].image)
         
         return cell
+    }
+}
+
+extension CharactersViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let character = characters[indexPath.row]
+        delegateCharacter?.sendCharacterDelegate(with: character)
+        let controller = DetailViewController()
+        controller.character = character
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }

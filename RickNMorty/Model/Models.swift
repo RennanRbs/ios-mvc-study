@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Character: Codable {
+class Character: Codable {
     let id: Int
     let name: String
     let status: String
@@ -16,9 +16,19 @@ struct Character: Codable {
     let gender: String
     let image: String
     let url: String
+    
+    init() {
+        self.id = 0
+        self.name = ""
+        self.status = ""
+        self.species = ""
+        self.gender = ""
+        self.image = ""
+        self.url = ""
+    }
 }
 
-struct Result: Codable {
+class Result: Codable {
     let results: [Character]
 }
 
