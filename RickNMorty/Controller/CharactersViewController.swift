@@ -11,7 +11,6 @@ import UIKit
 class CharactersViewController: UIViewController {
     
     var characters = [Character]()
-    public weak var delegateCharacter: SendCharacter?
     
     let charCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -84,7 +83,6 @@ extension CharactersViewController: UICollectionViewDataSource {
 extension CharactersViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let character = characters[indexPath.row]
-        delegateCharacter?.sendCharacterDelegate(with: character)
         let controller = DetailViewController()
         controller.character = character
         self.navigationController?.pushViewController(controller, animated: true)

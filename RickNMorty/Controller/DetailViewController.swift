@@ -10,20 +10,17 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    var charImage: UIImage?
-    let charImageView = CharactersCollectionViewCell()
     let detailView = DetailView()
-    var character = Character()
+    var character: Character?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-//        print(character.name)
         setupNavigation()
     }
     
     private func setupNavigation() {
-        self.title = character.name
+        self.title = character?.name ?? "Vazio"
         self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
