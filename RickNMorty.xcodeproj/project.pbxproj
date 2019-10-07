@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6083434323495147006FF9D3 /* SendCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6083434223495147006FF9D3 /* SendCharacter.swift */; };
 		AB1D595422DD55B700A66B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1D595322DD55B700A66B70 /* AppDelegate.swift */; };
 		AB1D595C22DD55B700A66B70 /* RickNMorty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB1D595A22DD55B700A66B70 /* RickNMorty.xcdatamodeld */; };
 		AB1D595E22DD55BB00A66B70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1D595D22DD55BB00A66B70 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6083434223495147006FF9D3 /* SendCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCharacter.swift; sourceTree = "<group>"; };
 		AB1D595022DD55B700A66B70 /* RickNMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickNMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1D595322DD55B700A66B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB1D595B22DD55B700A66B70 /* RickNMorty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RickNMorty.xcdatamodel; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6083434123495109006FF9D3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				6083434223495147006FF9D3 /* SendCharacter.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		AB1D594722DD55B700A66B70 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 		AB1D595222DD55B700A66B70 /* RickNMorty */ = {
 			isa = PBXGroup;
 			children = (
+				6083434123495109006FF9D3 /* Protocols */,
 				AB7050EB2329787F002F1CBA /* Helpers */,
 				AB1E210D22DFFA5A00B30691 /* Controller */,
 				AB1D597A22DD66F100A66B70 /* Model */,
@@ -308,6 +319,7 @@
 				AB1E211322E0E6DA00B30691 /* ExtensionCharCollectionViewCell+Constraints.swift in Sources */,
 				AB340A4922E7A34E0014DD40 /* URLToImageExtension.swift in Sources */,
 				AB3E3F0923148CE1002E100F /* CharactersViewControllerConstraintsExtensions.swift in Sources */,
+				6083434323495147006FF9D3 /* SendCharacter.swift in Sources */,
 				AB7050EA23297698002F1CBA /* BaseView.swift in Sources */,
 				AB1E211122DFFB5F00B30691 /* CharactersCollectionViewCell.swift in Sources */,
 				AB1D597C22DD671100A66B70 /* Models.swift in Sources */,
