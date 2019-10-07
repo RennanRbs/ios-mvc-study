@@ -19,7 +19,14 @@ class CharactersViewController: CollectionCommonViewController {
         self.view.backgroundColor = .white
         charCollectionView.delegate = self
         charCollectionView.dataSource = self
+      
         self.setupCollectionViewConstraints()
+        setupNavigationBar()
+    }
+    
+    private func setupNavigationBar(){
+        self.title = "RickNMorty"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     func fetchChars() {
@@ -27,6 +34,7 @@ class CharactersViewController: CollectionCommonViewController {
         NetworkManager.sharedInstance.sendGetRequest(getRequest: getRequest, type: Result.self) { (result, error) in
             if let requestResponse = result {
                 self.characters = requestResponse.results
+//                print(self.characters)
                 DispatchQueue.main.async {
                     self.charCollectionView.reloadData()
                 }
@@ -60,5 +68,14 @@ extension CharactersViewController: UICollectionViewDataSource {
         cell.charImageView.imageFrom(url: self.characters[indexPath.row].image)
         
         return cell
+    }
+}
+
+extension CharactersViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let character = characters[indexPath.row]
+        let controller = DetailViewController()
+        controller.character = character
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
