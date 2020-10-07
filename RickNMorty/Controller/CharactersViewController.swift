@@ -11,17 +11,23 @@ import UIKit
 class CharactersViewController: CollectionCommonViewController {
     
     var characters = [Character]()
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.fetchChars()
-        self.view.backgroundColor = .white
-        charCollectionView.delegate = self
-        charCollectionView.dataSource = self
       
-        self.setupCollectionViewConstraints()
-        setupNavigationBar()
+    override func viewWillAppear(animated: Bool) {
+           super.viewWillAppear(animated: animated)
+           self.fetchChars()
+           customizeView()
+           setupCollectionView()
+           setupNavigationBar()
+    }
+    
+    fileprivate func customizeView() {
+        self.view.backgroundColor = .white
+    }
+    
+    fileprivate setupCollectionView() {
+           charCollectionView.delegate = self
+           charCollectionView.dataSource = self
+           self.setupCollectionViewConstraints()
     }
     
     private func setupNavigationBar(){
@@ -34,7 +40,6 @@ class CharactersViewController: CollectionCommonViewController {
         NetworkManager.sharedInstance.sendGetRequest(getRequest: getRequest, type: Result.self) { (result, error) in
             if let requestResponse = result {
                 self.characters = requestResponse.results
-//                print(self.characters)
                 DispatchQueue.main.async {
                     self.charCollectionView.reloadData()
                 }
