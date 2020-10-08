@@ -16,7 +16,7 @@ class CharactersViewController: CollectionCommonViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fetchChars()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor.init(red: 255, green, 255, blue: 255, alpha: 255)
         charCollectionView.delegate = self
         charCollectionView.dataSource = self
       
