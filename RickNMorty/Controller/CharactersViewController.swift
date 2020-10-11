@@ -18,8 +18,8 @@ class CharactersViewController: CollectionCommonViewController {
            customizeView()
            setupCollectionView()
            setupNavigationBar()
-    }
-    
+    } 
+  
     fileprivate func customizeView() {
         self.view.backgroundColor = .white
     }
@@ -28,7 +28,6 @@ class CharactersViewController: CollectionCommonViewController {
            charCollectionView.delegate = self
            charCollectionView.dataSource = self
            self.setupCollectionViewConstraints()
-    }
     
     private func setupNavigationBar(){
         self.title = "RickNMorty"
