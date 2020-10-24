@@ -11,29 +11,29 @@ import UIKit
 class CharactersViewController: CollectionCommonViewController {
     
     var characters = [Character]()
-      
-    override func viewWillAppear(animated: Bool) {
-           super.viewWillAppear(animated: animated)
-           self.fetchChars()
-           customizeView()
-           setupCollectionView()
-           setupNavigationBar()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.fetchChars()
+        customizeView()
+        setupCollectionView()
+        setupNavigationBar()
     } 
-  
+    
     fileprivate func customizeView() {
         self.view.backgroundColor = .white
     }
     
-    fileprivate setupCollectionView() {
-           charCollectionView.delegate = self
-           charCollectionView.dataSource = self
-           self.setupCollectionViewConstraints()
+     func setupCollectionView() {
+        charCollectionView.delegate = self
+        charCollectionView.dataSource = self
+        self.setupCollectionViewConstraints()
+    }
     
-    private func setupNavigationBar(){
+    func setupNavigationBar(){
         self.title = "RickNMorty"
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-
     func fetchChars() {
         let getRequest = NetworkManager.sharedInstance.createGetRequest(url: CharsURL.allCharacters.rawValue)
         NetworkManager.sharedInstance.sendGetRequest(getRequest: getRequest, type: Result.self) { (result, error) in
@@ -49,15 +49,14 @@ class CharactersViewController: CollectionCommonViewController {
     }
     
 }
-
 extension CharactersViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) 
+        let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10))
         
         return CGSize(width: itemSize, height: itemSize)
     }
-
+    
 }
 
 extension CharactersViewController: UICollectionViewDataSource {
@@ -79,6 +78,7 @@ extension CharactersViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let character = characters[indexPath.row]
         let controller = DetailViewController()
+        print(character.name)
         controller.character = character
         self.navigationController?.pushViewController(controller, animated: true)
     }
