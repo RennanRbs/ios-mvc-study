@@ -9,7 +9,6 @@
 import Foundation
 
 class NetworkManager {
-    
     static let sharedInstance = NetworkManager()
     private init() {}
     

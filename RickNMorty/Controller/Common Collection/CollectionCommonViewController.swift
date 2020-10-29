@@ -11,9 +11,6 @@ import UIKit
 
 
 class CollectionCommonViewController: UIViewController {
-    
-   
-    
     let charCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -29,7 +26,4 @@ class CollectionCommonViewController: UIViewController {
         super.viewDidLoad()
 
     }
-    
-
-    
 }

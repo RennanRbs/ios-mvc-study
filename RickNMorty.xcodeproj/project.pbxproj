@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6083434323495147006FF9D3 /* SendCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6083434223495147006FF9D3 /* SendCharacter.swift */; };
+		77AC2FD0254B0E1000931478 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC2FCF254B0E1000931478 /* Router.swift */; };
+		77AC2FD4254B0E4900931478 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC2FD3254B0E4900931478 /* EndPointType.swift */; };
+		77AC2FD9254B14C300931478 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC2FD8254B14C300931478 /* NetworkRouter.swift */; };
+		77AC2FDE254B1D7500931478 /* CharacterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC2FDD254B1D7500931478 /* CharacterEndpoint.swift */; };
 		AB1D595422DD55B700A66B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1D595322DD55B700A66B70 /* AppDelegate.swift */; };
 		AB1D595C22DD55B700A66B70 /* RickNMorty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB1D595A22DD55B700A66B70 /* RickNMorty.xcdatamodeld */; };
 		AB1D595E22DD55BB00A66B70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1D595D22DD55BB00A66B70 /* Assets.xcassets */; };
@@ -40,6 +44,10 @@
 
 /* Begin PBXFileReference section */
 		6083434223495147006FF9D3 /* SendCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCharacter.swift; sourceTree = "<group>"; };
+		77AC2FCF254B0E1000931478 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		77AC2FD3254B0E4900931478 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		77AC2FD8254B14C300931478 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		77AC2FDD254B1D7500931478 /* CharacterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEndpoint.swift; sourceTree = "<group>"; };
 		AB1D595022DD55B700A66B70 /* RickNMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickNMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1D595322DD55B700A66B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB1D595B22DD55B700A66B70 /* RickNMorty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RickNMorty.xcdatamodel; sourceTree = "<group>"; };
@@ -90,6 +98,32 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		77AC2FCE254B0DB900931478 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				77AC2FD7254B14AC00931478 /* Protocols */,
+				77AC2FCF254B0E1000931478 /* Router.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		77AC2FD7254B14AC00931478 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				77AC2FD3254B0E4900931478 /* EndPointType.swift */,
+				77AC2FD8254B14C300931478 /* NetworkRouter.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		77AC2FDC254B1D6400931478 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				77AC2FDD254B1D7500931478 /* CharacterEndpoint.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
 		AB1D594722DD55B700A66B70 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +145,8 @@
 		AB1D595222DD55B700A66B70 /* RickNMorty */ = {
 			isa = PBXGroup;
 			children = (
+				77AC2FDC254B1D6400931478 /* Routers */,
+				77AC2FCE254B0DB900931478 /* Network */,
 				6083434123495109006FF9D3 /* Protocols */,
 				AB7050EB2329787F002F1CBA /* Helpers */,
 				AB1E210D22DFFA5A00B30691 /* Controller */,
@@ -309,6 +345,7 @@
 			files = (
 				AB1E211622E235A900B30691 /* URLEnum.swift in Sources */,
 				AB1D597922DD579200A66B70 /* NetworkManager.swift in Sources */,
+				77AC2FD4254B0E4900931478 /* EndPointType.swift in Sources */,
 				AB1D595C22DD55B700A66B70 /* RickNMorty.xcdatamodeld in Sources */,
 				ABD08175231F01DD004185E0 /* DetailViewController.swift in Sources */,
 				AB5367ED231DE1B600180C08 /* ReuserIdentifierEnum.swift in Sources */,
@@ -317,10 +354,13 @@
 				AB7050E8232974D0002F1CBA /* DetailView.swift in Sources */,
 				E83F594C23476CDE00774D17 /* CollectionCommonViewController.swift in Sources */,
 				AB1E211322E0E6DA00B30691 /* ExtensionCharCollectionViewCell+Constraints.swift in Sources */,
+				77AC2FD0254B0E1000931478 /* Router.swift in Sources */,
 				AB340A4922E7A34E0014DD40 /* URLToImageExtension.swift in Sources */,
 				AB3E3F0923148CE1002E100F /* CharactersViewControllerConstraintsExtensions.swift in Sources */,
+				77AC2FDE254B1D7500931478 /* CharacterEndpoint.swift in Sources */,
 				6083434323495147006FF9D3 /* SendCharacter.swift in Sources */,
 				AB7050EA23297698002F1CBA /* BaseView.swift in Sources */,
+				77AC2FD9254B14C300931478 /* NetworkRouter.swift in Sources */,
 				AB1E211122DFFB5F00B30691 /* CharactersCollectionViewCell.swift in Sources */,
 				AB1D597C22DD671100A66B70 /* Models.swift in Sources */,
 			);
@@ -479,7 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RickNMorty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -497,7 +537,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RickNMorty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

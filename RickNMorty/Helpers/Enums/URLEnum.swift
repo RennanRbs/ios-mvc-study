@@ -9,5 +9,5 @@
 import Foundation
 
 enum CharsURL: String {
-    case allCharacters = "https://rickandmortyapi.com/api/character/"
+    case allCharacters = "/api/character/"
 }

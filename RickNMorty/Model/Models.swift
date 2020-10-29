@@ -28,7 +28,7 @@ class Character: Codable {
     }
 }
 
-class Result: Codable {
+class CharacterResult: Codable {
     let results: [Character]
 }
 
