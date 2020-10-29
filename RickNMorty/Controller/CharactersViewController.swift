@@ -9,9 +9,18 @@
 import UIKit
 
 class CharactersViewController: CollectionCommonViewController {
+    private var characters = [Character]()
+    private let router: Router<CharacterEndpoint>
     
-    var characters = [Character]()
+    init(router: Router<CharacterEndpoint>) {
+        self.router = router
+        super.init(nibName: nil, bundle: nil)
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.fetchChars()
@@ -19,48 +28,45 @@ class CharactersViewController: CollectionCommonViewController {
         setupCollectionView()
         setupNavigationBar()
     } 
-    
-    fileprivate func customizeView() {
+
+    private func customizeView() {
         self.view.backgroundColor = .white
     }
     
-     func setupCollectionView() {
+    private func setupCollectionView() {
         charCollectionView.delegate = self
         charCollectionView.dataSource = self
         self.setupCollectionViewConstraints()
     }
     
-    func setupNavigationBar(){
+    private func setupNavigationBar(){
         self.title = "RickNMorty"
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-    func fetchChars() {
-        let getRequest = NetworkManager.sharedInstance.createGetRequest(url: CharsURL.allCharacters.rawValue)
-        NetworkManager.sharedInstance.sendGetRequest(getRequest: getRequest, type: Result.self) { (result, error) in
-            if let requestResponse = result {
-                self.characters = requestResponse.results
+
+    private func fetchChars() {
+        router.request(.listCharacters) { result in
+            switch result {
+            case .success(let characters):
+                self.characters = characters.results
                 DispatchQueue.main.async {
                     self.charCollectionView.reloadData()
                 }
-            } else {
-                print("Response is nil")
+            case .failure(let error):
+                print("error: \(error.localizedDescription)")
             }
         }
     }
     
 }
 extension CharactersViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10))
-        
         return CGSize(width: itemSize, height: itemSize)
     }
-    
 }
 
 extension CharactersViewController: UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return characters.count
     }
@@ -69,7 +75,6 @@ extension CharactersViewController: UICollectionViewDataSource {
         guard let cell = self.charCollectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.charCollectionViewCell.rawValue, for: indexPath) as? CharactersCollectionViewCell else { return UICollectionViewCell() }
         cell.nameLabel.text = self.characters[indexPath.row].name
         cell.charImageView.imageFrom(url: self.characters[indexPath.row].image)
-        
         return cell
     }
 }
