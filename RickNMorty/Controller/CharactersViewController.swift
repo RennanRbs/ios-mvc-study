@@ -57,7 +57,6 @@ class CharactersViewController: CollectionCommonViewController {
             }
         }
     }
-    
 }
 extension CharactersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -73,8 +72,8 @@ extension CharactersViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = self.charCollectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.charCollectionViewCell.rawValue, for: indexPath) as? CharactersCollectionViewCell else { return UICollectionViewCell() }
-        cell.nameLabel.text = self.characters[indexPath.row].name
-        cell.charImageView.imageFrom(url: self.characters[indexPath.row].image)
+        let character = characters[indexPath.item]
+        cell.setupCell(character: character)
         return cell
     }
 }
@@ -83,7 +82,6 @@ extension CharactersViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let character = characters[indexPath.row]
         let controller = DetailViewController()
-        print(character.name)
         controller.character = character
         self.navigationController?.pushViewController(controller, animated: true)
     }

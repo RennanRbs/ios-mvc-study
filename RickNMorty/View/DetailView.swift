@@ -9,7 +9,6 @@
 import UIKit
 
 class DetailView: BaseView {
-    
     lazy var ivPhoto: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .blue
@@ -60,11 +59,7 @@ class DetailView: BaseView {
     }
     
     override func addViews() {
-        addSubview(ivPhoto)
-        addSubview(lbName)
-        addSubview(lbStatus)
-        addSubview(lbSpecies)
-        addSubview(lbGender)
+        addSubviews([ivPhoto, lbName, lbStatus, lbSpecies, lbGender])
     }
     
     override func autoLayout() {
