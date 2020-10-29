@@ -25,7 +25,14 @@ class DetailViewController: UIViewController {
     }
     
     override func loadView() {
+        detailView.lbName.text = character?.name
+        detailView.lbStatus.text = character?.status
+        detailView.lbGender.text = character?.gender
+        detailView.lbSpecies.text = character?.species
+        detailView.ivPhoto.imageFrom(url: character!.image)
+        
         self.view = detailView
+        
     }
 
 }
