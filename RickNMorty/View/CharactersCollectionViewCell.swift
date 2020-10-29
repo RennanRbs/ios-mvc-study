@@ -9,22 +9,21 @@
 import UIKit
 
 class CharactersCollectionViewCell: UICollectionViewCell {
-    
-    lazy var charImageView: UIImageView = {
+    private let charImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "placeholder")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-
-    lazy var blurView: UIView = {
+    
+    private let blurView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.35)
         return view
     }()
     
-    lazy var nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Char Name"
@@ -34,44 +33,67 @@ class CharactersCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    func setupComponentsInCell() {
-        self.addSubview(self.charImageView)
-        self.charImageView.addSubview(self.blurView)
-        self.blurView.addSubview(self.nameLabel)
-        setupCellAdjustment()
-        self.setupImageViewConstraints()
-        self.setupBlurViewConstraints()
-        self.setupNameLabelConstraints()
+    func setupCell(character: Character) {
+        nameLabel.text = character.name
+        charImageView.imageFrom(url: character.image)
     }
     
-    func setupCellAdjustment(){
-        self.layer.cornerRadius = 10
-        self.clipsToBounds = true
-    }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setupComponentsInCell()
-        self.configCollectionCell()
-        
+        setupView()
     }
     
     private func configCollectionCell(){
-        self.contentView.layer.cornerRadius = 4.0
-        self.contentView.layer.borderWidth = 1.0
-        self.contentView.layer.borderColor = UIColor.clear.cgColor
-        self.contentView.layer.masksToBounds = true
-
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        self.layer.shadowRadius = 2.0
-        self.layer.shadowOpacity = 0.5
-        self.layer.masksToBounds = false
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
+        contentView.layer.cornerRadius = 4.0
+        contentView.layer.borderWidth = 1.0
+        contentView.layer.borderColor = UIColor.clear.cgColor
+        contentView.layer.masksToBounds = true
+        
+        layer.cornerRadius = 10
+        clipsToBounds = true
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        layer.shadowRadius = 2.0
+        layer.shadowOpacity = 0.5
+        layer.masksToBounds = false
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not benn implemented")
     }
-    
 }
 
+extension CharactersCollectionViewCell: ViewCodable {
+    func buildViewHierarchy() {
+        addSubview(self.charImageView)
+        charImageView.addSubview(self.blurView)
+        blurView.addSubview(self.nameLabel)
+    }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            charImageView.topAnchor.constraint(equalTo: self.topAnchor),
+            charImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            charImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            charImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            blurView.leadingAnchor.constraint(equalTo: self.charImageView.leadingAnchor),
+            blurView.trailingAnchor.constraint(equalTo: self.charImageView.trailingAnchor),
+            blurView.bottomAnchor.constraint(equalTo: self.charImageView.bottomAnchor),
+            blurView.heightAnchor.constraint(equalTo: self.charImageView.heightAnchor, multiplier: 0.3)
+        ])
+        
+        NSLayoutConstraint.activate([
+            nameLabel.leadingAnchor.constraint(equalTo: self.blurView.leadingAnchor, constant: 12),
+            nameLabel.trailingAnchor.constraint(equalTo: self.blurView.trailingAnchor, constant: -12),
+            nameLabel.centerYAnchor.constraint(equalTo: self.blurView.centerYAnchor)
+        ])
+    }
+    
+    func applyAdditionalChanges() {
+        configCollectionCell()
+    }
+}
