@@ -17,6 +17,7 @@
 		77AC303E254B574A00931478 /* CollectionViewWrappableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC303D254B574A00931478 /* CollectionViewWrappableCell.swift */; };
 		77AC3042254B732F00931478 /* CollectionViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC3041254B732F00931478 /* CollectionViewable.swift */; };
 		77AC3048254B8CF100931478 /* UICollectionView+DequeueReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC3047254B8CF100931478 /* UICollectionView+DequeueReusable.swift */; };
+		77AC3078254C02CC00931478 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC3077254C02CC00931478 /* HTTPMethod.swift */; };
 		AB1D595422DD55B700A66B70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1D595322DD55B700A66B70 /* AppDelegate.swift */; };
 		AB1D595C22DD55B700A66B70 /* RickNMorty.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB1D595A22DD55B700A66B70 /* RickNMorty.xcdatamodeld */; };
 		AB1D595E22DD55BB00A66B70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1D595D22DD55BB00A66B70 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		77AC303D254B574A00931478 /* CollectionViewWrappableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewWrappableCell.swift; sourceTree = "<group>"; };
 		77AC3041254B732F00931478 /* CollectionViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewable.swift; sourceTree = "<group>"; };
 		77AC3047254B8CF100931478 /* UICollectionView+DequeueReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+DequeueReusable.swift"; sourceTree = "<group>"; };
+		77AC3077254C02CC00931478 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		AB1D595022DD55B700A66B70 /* RickNMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickNMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1D595322DD55B700A66B70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB1D595B22DD55B700A66B70 /* RickNMorty.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RickNMorty.xcdatamodel; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				77AC2FD7254B14AC00931478 /* Protocols */,
 				77AC2FCF254B0E1000931478 /* Router.swift */,
+				77AC3077254C02CC00931478 /* HTTPMethod.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77AC3078254C02CC00931478 /* HTTPMethod.swift in Sources */,
 				77AC2FD4254B0E4900931478 /* EndPointType.swift in Sources */,
 				AB1D595C22DD55B700A66B70 /* RickNMorty.xcdatamodeld in Sources */,
 				ABD08175231F01DD004185E0 /* DetailViewController.swift in Sources */,

@@ -33,8 +33,8 @@ extension CharacterEndpoint: EndPointType {
         }
     }
     
-    var httpMethod: String {
-        return "GET"
+    var httpMethod: HTTPMethod {
+        return .get
     }
     
     var headers: HTTPHeaders {
@@ -43,4 +43,5 @@ extension CharacterEndpoint: EndPointType {
             "Accept": "application/json"
         ]
     }
+
 }
