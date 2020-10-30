@@ -8,7 +8,9 @@
 
 import UIKit
 
-class CharactersCollectionViewCell: UICollectionViewCell {
+class CharactersCollectionViewCell: UICollectionViewCell, CollectionViewWrappableCell {
+    static var identifier: String = "CharactersCollectionViewCell"
+    
     private let charImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "placeholder")
