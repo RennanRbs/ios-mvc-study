@@ -8,8 +8,8 @@
 
 import UIKit
 
-class DetailView: BaseView {
-    lazy var ivPhoto: UIImageView = {
+class DetailView: UIView {
+    private lazy var ivPhoto: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .blue
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -17,7 +17,7 @@ class DetailView: BaseView {
         return image
     }()
     
-    lazy var lbName: UILabel = {
+    private lazy var lbName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
@@ -27,7 +27,7 @@ class DetailView: BaseView {
         return label
     }()
     
-    lazy var lbStatus: UILabel = {
+    private lazy var lbStatus: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
@@ -36,7 +36,7 @@ class DetailView: BaseView {
         return label
     }()
     
-    lazy var lbSpecies: UILabel = {
+    private lazy var lbSpecies: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
@@ -45,7 +45,7 @@ class DetailView: BaseView {
         return label
     }()
     
-    lazy var lbGender: UILabel = {
+    private lazy var lbGender: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
@@ -54,18 +54,35 @@ class DetailView: BaseView {
         return label
     }()
     
-    override func initialize() {
-        self.backgroundColor = .white
+    private let character: Character
+    
+    init(character: Character) {
+        self.character = character
+        super.init(frame: .zero)
+        setupView()
     }
     
-    override func addViews() {
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupCharacter() {
+        lbName.text = character.name
+        lbStatus.text = character.status
+        lbGender.text = character.gender
+        lbSpecies.text = character.species
+        ivPhoto.imageFrom(url: character.image)
+    }
+}
+
+extension DetailView: ViewCodable {
+    func buildViewHierarchy() {
         addSubviews([ivPhoto, lbName, lbStatus, lbSpecies, lbGender])
     }
     
-    override func autoLayout() {
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             ivPhoto.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24),
-//            ivPhoto.centerXAnchor.constraint(equalTo: centerXAnchor),
             ivPhoto.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
             ivPhoto.heightAnchor.constraint(equalToConstant: 200),
             ivPhoto.widthAnchor.constraint(equalToConstant: 200),
@@ -99,5 +116,9 @@ class DetailView: BaseView {
             lbGender.heightAnchor.constraint(equalToConstant: 20),
         ])
     }
+    
+    func applyAdditionalChanges() {
+        backgroundColor = .white
+        setupCharacter()
+    }
 }
-

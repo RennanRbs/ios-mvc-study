@@ -8,16 +8,12 @@
 
 import UIKit
 
-
 extension UIImageView {
-    
-    // Send a request and save as an UIImage
     public func imageFrom(url urlString: String) {
         guard let url = URL(string: urlString) else {
             print("Couldn't create URL from \(urlString)")
             return
         }
-        
         let task = URLSession.shared.dataTask(with: url) { (data, responde, error) in
             if let responseData = data {
                 if let image = UIImage(data: responseData) {
@@ -29,5 +25,4 @@ extension UIImageView {
         }
         task.resume()
     }
-
 }
