@@ -9,7 +9,7 @@
 import UIKit
 
 class CollectionViewWrapper<Cell: CollectionViewWrappableCell>: UIView, CollectionViewable {
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.register(Cell.self, forCellWithReuseIdentifier: cellIdentifier)

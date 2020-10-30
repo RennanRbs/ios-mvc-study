@@ -88,8 +88,7 @@ extension CharactersViewController: UICollectionViewDataSource {
 extension CharactersViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let character = characters[indexPath.row]
-        let controller = DetailViewController()
-        controller.character = character
+        let controller = DetailViewController(character: character)
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }
