@@ -51,8 +51,6 @@ class CharactersCollectionViewCell: UICollectionViewCell, CollectionViewWrappabl
         contentView.layer.borderColor = UIColor.clear.cgColor
         contentView.layer.masksToBounds = true
         
-        layer.cornerRadius = 10
-        clipsToBounds = true
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 2.0)
         layer.shadowRadius = 2.0
@@ -68,7 +66,7 @@ class CharactersCollectionViewCell: UICollectionViewCell, CollectionViewWrappabl
 
 extension CharactersCollectionViewCell: ViewCodable {
     func buildViewHierarchy() {
-        addSubview(self.charImageView)
+        contentView.addSubview(self.charImageView)
         charImageView.addSubview(self.blurView)
         blurView.addSubview(self.nameLabel)
     }

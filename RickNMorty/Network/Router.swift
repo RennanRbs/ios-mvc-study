@@ -50,8 +50,9 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             return nil
         }
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30)
-        request.httpMethod = route.httpMethod
+        request.httpMethod = route.httpMethod.rawValue
         request.allHTTPHeaderFields = route.headers
+        request.httpBody = route.bodySerialized(route.body)
         return request
     }
     
